@@ -30,7 +30,7 @@ def cesears_cipher(string, number)
       # takes out the base of the character numbers so we can work with
       # a number between 0-25, if the number we are trying to 
       # shift by is divisible by 26 it will divide and return the remainder
-      # giving us a number between 1-26 again which we will add the base back
+      # giving us a number between 0-25 again which we will add the base back
       # to so that we can modify to the correct alphbetical number!
 
       modified_array.push(modify.chr)
