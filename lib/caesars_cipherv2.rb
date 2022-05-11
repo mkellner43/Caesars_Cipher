@@ -1,12 +1,18 @@
-puts "Enter the letters you would like to encrypt:"
-string = gets.chomp
-puts "Enter a number you would like to shift the letters by:"
-number = gets.chomp.to_i 
-unless number.is_a? Numeric
-  puts "Try again you fool!"
+def input
+  puts "Enter the letters you would like to encrypt:"
+  string = gets.chomp
   puts "Enter a number you would like to shift the letters by:"
-  number = gets.chomp
-end  
+  number = gets.chomp.to_i 
+  valid?(string, number)
+end 
+
+def valid?(string, number)
+  unless number > 0 and string.match? /\A[a-zA-Z]+\z/
+    puts "Try again you fool!"
+    return input()
+  end
+  true  
+end 
 # Console interface for user to enter custom string / number 
 
 
@@ -40,7 +46,4 @@ def cesears_cipher(string, number)
   end 
   modified_array.join("") # brings everything back together as a string
 end
-
-p cesears_cipher(string, number)
-
 # 65-90 is upcase and 97-122 is downcase 
